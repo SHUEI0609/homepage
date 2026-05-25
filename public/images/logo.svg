@@ -1,0 +1,11 @@
+<svg width="300" height="116" viewBox="0 0 300 116" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title">
+  <title id="title">ろご</title>
+  <rect width="300" height="116" fill="white"/>
+  <g transform="translate(0 6)">
+    <path d="M55 28C79 21 118 23 129 37C139 50 112 53 116 69C119 80 141 76 139 88C136 104 91 104 73 93" stroke="black" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M181 40C202 36 225 35 245 37" stroke="black" stroke-width="8" stroke-linecap="round"/>
+    <path d="M184 68C194 85 222 87 244 66" stroke="black" stroke-width="9" stroke-linecap="round"/>
+    <path d="M259 34C257 44 256 52 257 60" stroke="black" stroke-width="7" stroke-linecap="round"/>
+    <path d="M274 27C273 41 272 52 271 62" stroke="black" stroke-width="7" stroke-linecap="round"/>
+  </g>
+</svg>

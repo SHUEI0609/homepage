@@ -1,0 +1,12 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title">
+  <title id="title">しょしん</title>
+  <rect width="1920" height="1080" fill="white"/>
+  <g>
+    <path d="M275 388C235 540 236 698 337 751C421 795 544 746 608 688" stroke="black" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M775 644C815 637 846 638 873 649C900 660 924 684 958 730" stroke="black" stroke-width="19" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M884 514C888 595 884 680 874 755" stroke="black" stroke-width="20" stroke-linecap="round"/>
+    <path d="M969 562L971 556" stroke="black" stroke-width="18" stroke-linecap="round"/>
+    <path d="M1207 440C1191 548 1185 631 1229 649C1272 667 1344 626 1371 602" stroke="black" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M1560 426C1537 536 1516 644 1501 709C1498 722 1513 729 1522 719C1564 674 1626 612 1673 612C1711 612 1723 645 1773 651C1810 655 1843 646 1875 641" stroke="black" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

@@ -1,0 +1,121 @@
+---
+const footerLinks = [
+  { href: "#about", label: "私たちについて" },
+  { href: "#service", label: "事業内容" },
+  { href: "#works", label: "実績" },
+  { href: "#company", label: "会社概要" },
+  { href: "#contact", label: "お問い合わせ" },
+];
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a class="footer-logo-link" href="/" aria-label="トップページへ">
+        <img class="footer-logo" src="/images/logo.svg" alt="ろご" width="120" height="46" />
+      </a>
+      <p class="footer-copy">会社HPのフッター仮置きです。</p>
+    </div>
+
+    <nav class="footer-nav" aria-label="フッターナビゲーション">
+      {footerLinks.map((item) => (
+        <a href={item.href}>{item.label}</a>
+      ))}
+    </nav>
+  </div>
+
+  <div class="footer-bottom">
+    <small>&copy; {year} AIsolution. All rights reserved.</small>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    width: 100%;
+    border-top: 1px solid #e8edf3;
+    background: #ffffff;
+  }
+
+  .footer-inner {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 40px;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 48px 24px 36px;
+  }
+
+  .footer-brand {
+    display: grid;
+    gap: 14px;
+  }
+
+  .footer-logo-link {
+    display: inline-flex;
+    width: fit-content;
+    text-decoration: none;
+  }
+
+  .footer-logo {
+    display: block;
+    width: 120px;
+    height: 46px;
+    object-fit: contain;
+  }
+
+  .footer-copy {
+    margin: 0;
+    color: #6b7280;
+    font-size: 0.9rem;
+    line-height: 1.8;
+  }
+
+  .footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 14px 24px;
+    max-width: 560px;
+  }
+
+  .footer-nav a {
+    color: #4b5563;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 160ms ease;
+  }
+
+  .footer-nav a:hover,
+  .footer-nav a:focus-visible {
+    color: #111827;
+  }
+
+  .footer-bottom {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 18px 24px 28px;
+    color: #8a94a3;
+    font-size: 0.82rem;
+  }
+
+  @media (max-width: 760px) {
+    .footer-inner {
+      display: grid;
+      gap: 28px;
+      padding: 40px 18px 30px;
+    }
+
+    .footer-nav {
+      justify-content: flex-start;
+      gap: 12px 18px;
+    }
+
+    .footer-bottom {
+      padding: 16px 18px 24px;
+    }
+  }
+</style>

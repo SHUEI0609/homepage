@@ -1,0 +1,21 @@
+{
+  "name": "company-hp",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "deploy": "npm run build && WRANGLER_LOG_PATH=./.wrangler/logs wrangler pages deploy dist --branch HomePage",
+    "deploy:preview": "npm run build && WRANGLER_LOG_PATH=./.wrangler/logs wrangler pages deploy dist --branch preview"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.4",
+    "astro": "^5.0.0",
+    "typescript": "^5.7.2"
+  },
+  "devDependencies": {
+    "wrangler": "^4.94.0"
+  }
+}
