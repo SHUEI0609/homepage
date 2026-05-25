@@ -23,6 +23,19 @@ const slides = [
     <button class="hero-control hero-control-next" type="button" aria-label="次の画像へ" data-hero-next>
       <span aria-hidden="true">›</span>
     </button>
+
+    <div class="hero-dots" aria-label="スライド選択">
+      {slides.map((_, index) => (
+        <button
+          class="hero-dot"
+          type="button"
+          aria-label={`${index + 1}枚目の画像へ`}
+          aria-current={index === 0 ? "true" : "false"}
+          data-hero-dot
+          data-slide-index={index}
+        />
+      ))}
+    </div>
   </div>
 </section>
 
@@ -34,22 +47,29 @@ const slides = [
     const slides = Array.from(carousel.querySelectorAll(".hero-slide"));
     const prevButton = carousel.querySelector("[data-hero-prev]");
     const nextButton = carousel.querySelector("[data-hero-next]");
+    const dotButtons = Array.from(carousel.querySelectorAll("[data-hero-dot]"));
     let currentIndex = 0;
     let autoSlideTimer;
 
     const updateSlide = () => {
       if (!(track instanceof HTMLElement)) return;
       track.style.transform = `translateX(-${currentIndex * 100}%)`;
+      dotButtons.forEach((dot, index) => {
+        dot.setAttribute("aria-current", String(index === currentIndex));
+      });
+    };
+
+    const goToSlide = (index) => {
+      currentIndex = (index + slides.length) % slides.length;
+      updateSlide();
     };
 
     const goToPrevSlide = () => {
-      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-      updateSlide();
+      goToSlide(currentIndex - 1);
     };
 
     const goToNextSlide = () => {
-      currentIndex = (currentIndex + 1) % slides.length;
-      updateSlide();
+      goToSlide(currentIndex + 1);
     };
 
     const startAutoSlide = () => {
@@ -67,6 +87,16 @@ const slides = [
       startAutoSlide();
     });
 
+    dotButtons.forEach((dot) => {
+      dot.addEventListener("click", () => {
+        const slideIndex = Number(dot.getAttribute("data-slide-index"));
+        if (Number.isNaN(slideIndex)) return;
+        goToSlide(slideIndex);
+        startAutoSlide();
+      });
+    });
+
+    updateSlide();
     startAutoSlide();
   }
 </script>
@@ -163,6 +193,39 @@ const slides = [
     right: 28px;
   }
 
+  .hero-dots {
+    position: absolute;
+    right: 0;
+    bottom: 28px;
+    left: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    pointer-events: none;
+  }
+
+  .hero-dot {
+    width: 10px;
+    height: 10px;
+    padding: 0;
+    border: 1px solid rgba(17, 24, 39, 0.5);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.82);
+    cursor: pointer;
+    pointer-events: auto;
+    transition:
+      background-color 180ms ease,
+      border-color 180ms ease,
+      transform 180ms ease;
+  }
+
+  .hero-dot[aria-current="true"] {
+    border-color: #111827;
+    background: #111827;
+    transform: scale(1.18);
+  }
+
   @media (max-width: 760px) {
     .hero-carousel {
       min-height: calc(100vh - 64px);
@@ -194,6 +257,16 @@ const slides = [
 
     .hero-control-next {
       right: 16px;
+    }
+
+    .hero-dots {
+      bottom: 22px;
+      gap: 9px;
+    }
+
+    .hero-dot {
+      width: 9px;
+      height: 9px;
     }
   }
 </style>
