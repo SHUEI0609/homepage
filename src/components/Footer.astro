@@ -1,121 +1,245 @@
 ---
-const footerLinks = [
-  { href: "#about", label: "私たちについて" },
-  { href: "#service", label: "事業内容" },
-  { href: "#works", label: "実績" },
-  { href: "#company", label: "会社概要" },
-  { href: "#contact", label: "お問い合わせ" },
+const footerGroups = [
+  {
+    title: "ABOUT US / 私たちについて",
+    links: [
+      { href: "#company", label: "COMPANY / データで見るauペイメント" },
+      { href: "#vision", label: "VISION / 求める人物像" },
+      { href: "#business", label: "BUSINESS / 事業内容" },
+    ],
+  },
+  {
+    title: "CULTURE / 文化",
+    links: [],
+  },
+  {
+    title: "JOB LIST / 募集要項",
+    links: [
+      { href: "#career", label: "キャリア採用" },
+      { href: "#new-graduate", label: "新卒採用（特設サイト）" },
+      { href: "#faq", label: "FAQ" },
+    ],
+  },
 ];
-
-const year = new Date().getFullYear();
 ---
 
 <footer class="site-footer">
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <a class="footer-logo-link" href="/" aria-label="トップページへ">
-        <img class="footer-logo" src="/images/logo.svg" alt="ろご" width="120" height="46" />
-      </a>
-      <p class="footer-copy">会社HPのフッター仮置きです。</p>
-    </div>
+  <div class="footer-main">
+    <nav class="footer-groups" aria-label="フッターナビゲーション">
+      {footerGroups.map((group) => (
+        <section class="footer-group">
+          <a class="footer-heading" href="#">
+            <span class="footer-heading-icon" aria-hidden="true">›</span>
+            <span>{group.title}</span>
+          </a>
 
-    <nav class="footer-nav" aria-label="フッターナビゲーション">
-      {footerLinks.map((item) => (
-        <a href={item.href}>{item.label}</a>
+          {group.links.length > 0 && (
+            <ul class="footer-links">
+              {group.links.map((link) => (
+                <li>
+                  <a href={link.href}>{link.label}</a>
+                </li>
+              ))}
+            </ul>
+          )}
+        </section>
       ))}
     </nav>
+
+    <a class="back-to-top" href="#" aria-label="ページ上部へ戻る">
+      <span aria-hidden="true"></span>
+    </a>
   </div>
 
   <div class="footer-bottom">
-    <small>&copy; {year} AIsolution. All rights reserved.</small>
+    <a class="corporate-link" href="#">
+      <span>コーポレートサイト</span>
+      <span class="external-icon" aria-hidden="true"></span>
+    </a>
+    <small>Copyright &copy; au Payment Corporation All rights reserved.</small>
   </div>
 </footer>
 
 <style>
   .site-footer {
     width: 100%;
-    border-top: 1px solid #e8edf3;
+    border-top: 1px solid #d7d7d7;
     background: #ffffff;
+    color: #171717;
   }
 
-  .footer-inner {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 40px;
-    max-width: 1120px;
+  .footer-main {
+    position: relative;
+    max-width: 1280px;
     margin: 0 auto;
-    padding: 48px 24px 36px;
+    padding: 76px 48px 72px;
   }
 
-  .footer-brand {
+  .footer-groups {
     display: grid;
-    gap: 14px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 38px;
+    max-width: 900px;
   }
 
-  .footer-logo-link {
-    display: inline-flex;
-    width: fit-content;
+  .footer-group {
+    min-width: 0;
+  }
+
+  .footer-heading {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #b9b9b9;
+    color: #111111;
+    font-size: 1.02rem;
+    font-weight: 800;
+    line-height: 1.35;
     text-decoration: none;
   }
 
-  .footer-logo {
-    display: block;
-    width: 120px;
-    height: 46px;
-    object-fit: contain;
+  .footer-heading-icon {
+    display: grid;
+    flex: 0 0 auto;
+    place-items: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #f39a3d;
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: 800;
+    line-height: 1;
   }
 
-  .footer-copy {
-    margin: 0;
-    color: #6b7280;
-    font-size: 0.9rem;
-    line-height: 1.8;
+  .footer-links {
+    display: grid;
+    gap: 19px;
+    margin: 34px 0 0;
+    padding: 0;
+    list-style: none;
   }
 
-  .footer-nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    gap: 14px 24px;
-    max-width: 560px;
-  }
-
-  .footer-nav a {
-    color: #4b5563;
-    font-size: 0.9rem;
-    font-weight: 500;
+  .footer-links a {
+    color: #4b4b4b;
+    font-size: 0.95rem;
+    font-weight: 700;
+    line-height: 1.5;
     text-decoration: none;
     transition: color 160ms ease;
   }
 
-  .footer-nav a:hover,
-  .footer-nav a:focus-visible {
-    color: #111827;
+  .footer-heading:hover,
+  .footer-heading:focus-visible,
+  .footer-links a:hover,
+  .footer-links a:focus-visible,
+  .corporate-link:hover,
+  .corporate-link:focus-visible {
+    color: #df5b20;
+  }
+
+  .back-to-top {
+    position: absolute;
+    right: 34px;
+    bottom: 0;
+    display: grid;
+    place-items: center;
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: #df5b20;
+    text-decoration: none;
+    transform: translateY(50%);
+    transition:
+      background-color 160ms ease,
+      transform 160ms ease;
+  }
+
+  .back-to-top:hover,
+  .back-to-top:focus-visible {
+    background: #c84f19;
+    transform: translateY(50%) scale(1.04);
+  }
+
+  .back-to-top span {
+    width: 22px;
+    height: 22px;
+    border-top: 4px solid #ffffff;
+    border-left: 4px solid #ffffff;
+    transform: translateY(5px) rotate(45deg);
   }
 
   .footer-bottom {
-    max-width: 1120px;
-    margin: 0 auto;
-    padding: 18px 24px 28px;
-    color: #8a94a3;
-    font-size: 0.82rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    border-top: 1px solid #d7d7d7;
+    padding: 31px max(48px, calc((100vw - 1280px) / 2 + 48px)) 34px;
+    color: #4b4b4b;
   }
 
-  @media (max-width: 760px) {
-    .footer-inner {
-      display: grid;
-      gap: 28px;
-      padding: 40px 18px 30px;
+  .corporate-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: #333333;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .external-icon {
+    position: relative;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border: 2px solid #df5b20;
+  }
+
+  .external-icon::after {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 7px;
+    height: 7px;
+    border-top: 2px solid #df5b20;
+    border-right: 2px solid #df5b20;
+    content: "";
+  }
+
+  .footer-bottom small {
+    color: #4b4b4b;
+    font-size: 0.86rem;
+    font-weight: 700;
+  }
+
+  @media (max-width: 900px) {
+    .footer-main {
+      padding: 56px 24px 66px;
     }
 
-    .footer-nav {
-      justify-content: flex-start;
-      gap: 12px 18px;
+    .footer-groups {
+      grid-template-columns: 1fr;
+      gap: 36px;
+      max-width: none;
+    }
+
+    .footer-links {
+      margin-top: 24px;
+    }
+
+    .back-to-top {
+      right: 24px;
+      width: 62px;
+      height: 62px;
     }
 
     .footer-bottom {
-      padding: 16px 18px 24px;
+      display: grid;
+      gap: 18px;
+      padding: 28px 24px 32px;
     }
   }
 </style>
