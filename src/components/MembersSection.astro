@@ -19,7 +19,9 @@ const members = [
     <div class="members-grid">
       {members.map((member) => (
         <article class="member-card">
-          <img class="member-image" src={member.image} alt="" width="1920" height="1080" loading="lazy" />
+          <div class="member-image-frame">
+            <img class="member-image" src={member.image} alt="" loading="lazy" />
+          </div>
           <div>
             <p class="member-role">{member.role}</p>
             <h3>{member.name}</h3>
@@ -83,18 +85,26 @@ const members = [
   .member-card {
     display: grid;
     gap: 22px;
+    align-content: start;
     border: 1px solid #d7d7d7;
     border-radius: 8px;
     padding: 24px;
     background: #ffffff;
   }
 
+  .member-image-frame {
+    display: grid;
+    place-items: center;
+    aspect-ratio: 5 / 4;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #ffffff;
+  }
+
   .member-image {
     display: block;
     width: 100%;
-    aspect-ratio: 5 / 4;
-    border-radius: 8px;
-    background: #ffffff;
+    height: 100%;
     object-fit: contain;
   }
 
