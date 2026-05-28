@@ -1,0 +1,103 @@
+---
+const detailRows = [
+  { label: "ああああ", value: "ああああああああ" },
+  { label: "ああああ", value: "ああああああああ" },
+  { label: "ああああ", value: "ああああああああ" },
+  { label: "ああああ", value: "ああああああああ" },
+];
+---
+
+<section class="details-section" id="details" aria-labelledby="details-title">
+  <div class="section-inner">
+    <div class="section-heading">
+      <p class="section-kicker">DETAILS</p>
+      <h2 id="details-title">詳細</h2>
+    </div>
+
+    <dl class="details-list">
+      {detailRows.map((row) => (
+        <div>
+          <dt>{row.label}</dt>
+          <dd>{row.value}</dd>
+        </div>
+      ))}
+    </dl>
+  </div>
+</section>
+
+<style>
+  .details-section {
+    border-top: 1px solid #e5e7eb;
+    background: #ffffff;
+  }
+
+  .section-inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 96px 24px;
+  }
+
+  .section-heading {
+    display: grid;
+    gap: 12px;
+    margin-bottom: 42px;
+  }
+
+  .section-kicker {
+    margin: 0;
+    color: #6b7280;
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0;
+  }
+
+  .section-heading h2 {
+    margin: 0;
+    color: #111827;
+    font-size: 2.2rem;
+    line-height: 1.3;
+    letter-spacing: 0;
+  }
+
+  .details-list {
+    margin: 0;
+    border-top: 1px solid #d7d7d7;
+  }
+
+  .details-list div {
+    display: grid;
+    grid-template-columns: 220px minmax(0, 1fr);
+    gap: 32px;
+    padding: 24px 0;
+    border-bottom: 1px solid #d7d7d7;
+  }
+
+  .details-list dt {
+    color: #6b7280;
+    font-size: 0.92rem;
+    font-weight: 800;
+  }
+
+  .details-list dd {
+    margin: 0;
+    color: #111827;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.8;
+  }
+
+  @media (max-width: 720px) {
+    .section-inner {
+      padding: 72px 18px;
+    }
+
+    .section-heading h2 {
+      font-size: 1.8rem;
+    }
+
+    .details-list div {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+  }
+</style>
