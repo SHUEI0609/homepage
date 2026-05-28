@@ -1,0 +1,151 @@
+---
+const aboutItems = [
+  { label: "ああああ", value: "ああああああ" },
+  { label: "ああああ", value: "ああああああ" },
+  { label: "ああああ", value: "ああああああ" },
+];
+---
+
+<section class="about-section" id="about" aria-labelledby="about-title">
+  <div class="section-inner">
+    <div class="section-heading">
+      <p class="section-kicker">ABOUT</p>
+      <h2 id="about-title">会社について</h2>
+    </div>
+
+    <div class="about-layout">
+      <p class="about-lead">
+        ああああああああああああああああああああああああ。ああああああああああああああああ。
+      </p>
+
+      <div class="about-card">
+        <p>
+          ああああああああああああああああああああ。ああああああああああああああああああああ。
+        </p>
+      </div>
+    </div>
+
+    <dl class="about-list">
+      {aboutItems.map((item) => (
+        <div>
+          <dt>{item.label}</dt>
+          <dd>{item.value}</dd>
+        </div>
+      ))}
+    </dl>
+  </div>
+</section>
+
+<style>
+  .about-section {
+    border-top: 1px solid #e5e7eb;
+    background: #ffffff;
+  }
+
+  .section-inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 96px 24px;
+  }
+
+  .section-heading {
+    display: grid;
+    gap: 12px;
+    margin-bottom: 42px;
+  }
+
+  .section-kicker {
+    margin: 0;
+    color: #6b7280;
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0;
+  }
+
+  .section-heading h2 {
+    margin: 0;
+    color: #111827;
+    font-size: 2.2rem;
+    line-height: 1.3;
+    letter-spacing: 0;
+  }
+
+  .about-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
+    gap: 42px;
+    align-items: stretch;
+  }
+
+  .about-lead {
+    margin: 0;
+    color: #111827;
+    font-size: 1.45rem;
+    font-weight: 700;
+    line-height: 1.9;
+  }
+
+  .about-card {
+    border: 1px solid #d7d7d7;
+    border-radius: 8px;
+    padding: 30px;
+    background: #ffffff;
+  }
+
+  .about-card p {
+    margin: 0;
+    color: #4b5563;
+    font-size: 0.96rem;
+    font-weight: 600;
+    line-height: 1.9;
+  }
+
+  .about-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1px;
+    margin: 52px 0 0;
+    padding: 1px;
+    background: #d7d7d7;
+  }
+
+  .about-list div {
+    display: grid;
+    gap: 8px;
+    min-height: 120px;
+    padding: 24px;
+    background: #ffffff;
+  }
+
+  .about-list dt {
+    color: #6b7280;
+    font-size: 0.86rem;
+    font-weight: 700;
+  }
+
+  .about-list dd {
+    margin: 0;
+    color: #111827;
+    font-size: 1.1rem;
+    font-weight: 800;
+  }
+
+  @media (max-width: 800px) {
+    .section-inner {
+      padding: 72px 18px;
+    }
+
+    .section-heading h2 {
+      font-size: 1.8rem;
+    }
+
+    .about-layout,
+    .about-list {
+      grid-template-columns: 1fr;
+    }
+
+    .about-lead {
+      font-size: 1.18rem;
+    }
+  }
+</style>
