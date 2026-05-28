@@ -1,18 +1,24 @@
 [
   {
-    "name": "ゆら",
+    "name": "たつみゆら",
     "role": "代表取締役",
     "text": "ああああああああああああ。",
     "image": "/images/member-placeholder.svg"
   },
   {
-    "name": "ゆら",
+    "name": "たつみゆら",
     "role": "取締役",
     "text": "ああああああああああああ。",
     "image": "/images/member-placeholder.svg"
   },
   {
-    "name": "ゆら",
+    "name": "たつみゆら",
+    "role": "管理職",
+    "text": "ああああああああああああ。",
+    "image": "/images/member-placeholder.svg"
+  },
+  {
+    "name": "たつみゆら",
     "role": "エンジニア",
     "text": "ああああああああああああ。",
     "image": "/images/member-placeholder.svg"
